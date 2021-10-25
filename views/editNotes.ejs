@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<head>
+    <title>Love Notes</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+<div class="col-sm-6 col-sm-offset-3">
+
+    <div class="col-sm-6" id ="editNoteDiv">
+        
+        <h2>Edit your note</h2>
+
+        <% if (user.local.email) { %>
+            <form action="/updateMessage" method="POST" class ="formNote" >
+
+             <%
+
+
+                var updatedDate = new Date(message.date).toISOString().split('T')[0]
+
+                
+             %>
+
+              <label for="todayDate">Today's Date:</label>
+              <input type="date" id="todayDate" name="date" value="<%= updatedDate %>">
+
+              <label for="noteTitle">Title:  </label>
+              <input type="text" name="noteTitle"  value="<%= message.title %>">
+
+              <label for="toWhom">To:</label>
+              <input type="text" id="toWhom" name="toWhom"  value="<%= message.toWhom %>">
+
+              <label for="fromWhom">From:</label>
+              <input type="text" id="fromWhom" name="fromWhom"  value="<%= message.fromWhom %>">
+
+              <label for="note">Note:</label>
+              <input type="text" value="<%= message.msg %>" name="msg" class="writtenNote">
+
+              <input type="text" value="<%= user.local.email %>" name="name" placeholder="email" class ="userEmail">
+              
+
+              <input type="text" value='<%= message._id %>' name="objectID" id = "inputObjectID">
+
+              <button type="submit">Submit</button>
+
+            </form>
+          </div>
+          <% } %>
+
+
+</div>
+</div>
+</body>
+</html>
