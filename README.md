@@ -1,7 +1,5 @@
 This is a full stack application where the user can write love and personal notes. The user can also read and edit created notes.
 
-Link to Project: [https://juliedodev-lovenotes.netlify.app/]
-
 <img src="lovenotes.png">
 
 How It's Made:
